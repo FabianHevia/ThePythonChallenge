@@ -1,3 +1,6 @@
+# En los recursos de ocr.html encontramos el siguiente string:
+
+
 string = '''%%$@_$^__#)^)&!_+]!*@&^}@[@%]()%+$&[(_@%+%$*^@$^!+]!&_#)_*}{}}!}_]$[%}@[{_@#_^{*
 @##&{#&{&)*%(]{{([*}@[@&]+!!*{)!}{%+{))])[!^})+)$]#{*+^((@^@}$[**$&^{$!@#$%)!@(&
 +^!{%_$&@^!}$_${)$_#)!({@!)(^}!*^&!$%_&&}&_#&@{)]{+)%*{&*%*&@%$+]!*__(#!*){%&@++
@@ -1219,19 +1222,55 @@ $#_}*!(+([_&%{^&[([%]}*^{{([@+@]@*&@_!]_+([(#&!]]#$$#]@#{_]][_{@]{*))$({%}_![@$]
 }!)$]&($)@](+(#{$)_%^%_^^#][{*[)%}+[##(##^{$}^]#&(&*{)%)&][&{]&#]}[[^^&[!#}${@_(
 #@}&$[[%]_&$+)$!%{(}$^$}*'''
 
+'''
+Vamos a utilizar dos funciones:
+
+
+def apariciones(string)
+
+Crea un diccionario donde cada clave es un carácter 
+y cada valor es cuántas veces aparece.
+
+
+def loop(freq)
+
+Recorre el diccionario y muestra los caracteres que 
+aparecen una sola vez.
+
+
+De esta manera podremos observar que caracteres
+son los claves y los que no se repiten entre tanto 
+ruido.
+'''
 def apariciones(string):
+
     freq = {}
+
     for char in string:
+
         if char in freq:
+
             freq[char] += 1
+
         else:
+
             freq[char] = 1
+
     return freq
     
-def loop(freq):
-    for key, val in freq.items():
-        if val == 1:
-            print(key, end='')
-    print()
 
-print(loop(apariciones(string)))
+def loop(freq):
+    resultado = ""
+
+    for key, val in freq.items():
+
+        if val == 1:
+
+            resultado += key
+
+    return resultado
+
+
+#print(loop(apariciones(string)))
+
+print('http://www.pythonchallenge.com/pc/def/' + str(loop(apariciones(string))) + '.html')
