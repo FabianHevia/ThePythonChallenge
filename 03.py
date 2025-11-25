@@ -1,3 +1,5 @@
+# En los recursos de equality.html encontramos el siguiente string:
+
 string = '''kAewtloYgcFQaJNhHVGxXDiQmzjfcpYbzxlWrVcqsmUbCunkfxZWDZjUZMiGqhRRiUvGmYmvnJIHEmbT
 MUKLECKdCthezSYBpIElRnZugFAxDRtQPpyeCBgBfaRVvvguRXLvkAdLOeCKxsDUvBBCwdpMMWmuELeG
 ENihrpCLhujoBqPRDPvfzcwadMMMbkmkzCCzoTPfbRlzBqMblmxTxNniNoCufprWXxgHZpldkoLCrHJq
@@ -1250,22 +1252,70 @@ KfErkDaWMFZZeuqDmXKJEGHyToPUhPphfVhgUZgbIuRAtWnroImpJKqqmEZqeNQCKzhjIkKQHURWLXFw
 PBuijeoTSpsVLaOGuLVjMZXkBvVXwUuHfBihziiavGSYofPNeKsTXruMUumRRPQJzvSzJkKbtSipiqBd
 '''
 
+'''
+Vamos a realizar 3 funciones para resolver esto:
+
 def Biggie(char):
+
+    Verifica si el carácter es una letra mayúscula.
+    La función retorna:
+        - True si el char es mayúscula
+        - False si no
+
+    
+def Smallie(char):
+
+    Verifica si el carácter es una letra minúscula.
+    La función retorna:
+        - True si el char es minúscula
+        - False si no
+    
+        
+def Mergie(string):
+
+    Devuelve False si ocurre alguna de estas condiciones:
+        - Las posiciones 0, 4 o 8 contienen una mayúscula → Biggie(...)
+        - Las posiciones 1,2,3,5,6,7 contienen una minúscula → Smallie(...)
+    Si cualquier condición se cumple → retorna False
+
+    
+Entonces con esto haremos un ciclo que por cada carácter del string:
+
+    - Quita el primero (pop(0))
+    - Agrega el nuevo al final (append(char))
+    - Cuando value (9 caracteres actuales) 
+    cumple la condición de Mergie, imprime el carácter central
+    
+'''
+def Biggie(char):
+
     return (ord(char) <=90 and ord(char) >=65)
 
+
 def Smallie(char):
+
     return(ord(char) <=122 and ord(char) >=97)
 
+
 def Mergie(string):
+
     if any([Biggie(string[0]),Biggie(string[4]),Biggie(string[8]),Smallie(string[1]),Smallie(string[2]),Smallie(string[3]),Smallie(string[5]),Smallie(string[6]),Smallie(string[7])]):
+
         return False
+    
     else:
+
         return True
+    
 string = string.replace('\n','')
 value = ['A'] * 9
 
+
 for char in string:
+
     value.pop(0)
     value.append(char)
+
     if Mergie(value) :
+
         print (value[4], end='')
