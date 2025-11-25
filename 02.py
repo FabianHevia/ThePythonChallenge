@@ -1274,3 +1274,5 @@ def loop(freq):
 #print(loop(apariciones(string)))
 
 print('http://www.pythonchallenge.com/pc/def/' + str(loop(apariciones(string))) + '.html')
+
+'Copiamos la url anterior y la pegamos en la url del buscador'

@@ -1285,7 +1285,7 @@ Entonces con esto haremos un ciclo que por cada carácter del string:
     - Agrega el nuevo al final (append(char))
     - Cuando value (9 caracteres actuales) 
     cumple la condición de Mergie, imprime el carácter central
-    
+
 '''
 def Biggie(char):
 
@@ -1310,12 +1310,20 @@ def Mergie(string):
 string = string.replace('\n','')
 value = ['A'] * 9
 
+def loop():
+    resultado =""
 
-for char in string:
+    for char in string:
 
-    value.pop(0)
-    value.append(char)
+        value.pop(0)
+        value.append(char)
 
-    if Mergie(value) :
+        if Mergie(value) :
 
-        print (value[4], end='')
+            resultado += value[4]
+
+    return resultado
+
+print('http://www.pythonchallenge.com/pc/def/' + str(loop()) + '.html')
+
+'Copiamos la url anterior y la pegamos en la url del buscador'
