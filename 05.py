@@ -1,9 +1,23 @@
+'''
+Pues pick hell suena similar a pickle... supuestamente.
+'''
+
 import pickle
-from urllib.request import urlopen
+import requests
+import io
 
-link = urlopen('http://www.pythonchallenge.com/pc/def/banner.p')
+resp = requests.get("http://www.pythonchallenge.com/pc/def/banner.p")
 
-data = pickle.load(link)
+# Convertimos resp.content (bytes) en un buffer para pickle.load
+buffer = io.BytesIO(resp.content)
+
+data = pickle.load(buffer)
 
 for i in data:
     print(''.join([key * val for key, val in i]))
+
+'''
+http://www.pythonchallenge.com/pc/def/channel.html
+
+Copiar y pegar la anterior url para ir al nivel 6
+'''
