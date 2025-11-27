@@ -1,5 +1,10 @@
 '''
 Pues pick hell suena similar a pickle... supuestamente.
+
+Descargamos el banner.p, 
+lo deserializamos y mostramos el banner; 
+al final imprimimos la palabra encontrada 
+y lo adjuntamos dando la URL siguiente.
 '''
 
 import pickle
