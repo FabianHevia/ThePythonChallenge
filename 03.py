@@ -1327,3 +1327,5 @@ def loop():
 print('http://www.pythonchallenge.com/pc/def/' + str(loop()) + '.html')
 
 'Copiamos la url anterior y la pegamos en la url del buscador'
+
+'Nos va a enviar a la siguiente página: http://www.pythonchallenge.com/pc/def/linkedlist.php'
